@@ -1,0 +1,2096 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>إعداد الأبحاث والملخصات المنظمة — خدمة كتابة وتنسيق حسب الطلب</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Cairo', 'Tajawal', 'sans-serif'],
+            display: ['Cairo', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              900: '#134e4a',
+            },
+            accent: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Cairo', 'Tajawal', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .glass-card {
+      backdrop-filter: blur(10px);
+    }
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-up {
+      animation: fadeSlideUp 0.35s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- شريط التنقل العلوي -->
+  <header class="sticky top-0 z-40 bg-white/90 glass-card border-b border-slate-200/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-600 to-indigo-600 flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-transform">
+          <!-- أيقونة ملف وبحث -->
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+        </div>
+        <div>
+          <span class="font-bold text-slate-900 text-sm sm:text-base block leading-tight">مُسَوَّدَة وتنسيق</span>
+          <span class="text-[11px] text-slate-500 hidden sm:block">أبحاث وملخصات منظمة حسب الطلب</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
+        <a href="#samples" class="hover:text-teal-700 transition-colors">النماذج والأقسام</a>
+        <a href="#estimator" class="hover:text-teal-700 transition-colors">تقدير الطلب والاتفاق</a>
+        <a href="#request-form" class="hover:text-teal-700 transition-colors">اطلب بحثك</a>
+        <a href="#admin-section" class="hover:text-indigo-700 transition-colors">طلبات الأدمن</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-800 text-xs font-extrabold select-all" title="يوزر ديسكورد للتواصل">
+          <span>Discord:</span>
+          <span>.3lal</span>
+        </span>
+        <button
+          id="themeToggleBtn"
+          type="button"
+          aria-label="تبديل المظهر"
+          class="p-2.5 rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors"
+          title="تبديل النمط الفاتح / الداكن"
+        >
+          <svg id="moonIcon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+          <svg id="sunIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </button>
+        <a href="#request-form" class="px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs sm:text-sm font-bold shadow-sm transition-colors">
+          ابدأ طلبك
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- القسم الرئيسي Hero -->
+    <section class="relative overflow-hidden pt-12 pb-16 sm:pt-16 sm:pb-24 bg-gradient-to-b from-teal-50/70 via-white to-slate-50 border-b border-slate-200/70">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-100/80 text-teal-800 text-xs font-bold">
+              <span class="w-2 h-2 rounded-full bg-teal-600"></span>
+              <span>إعداد ملفات منظمة ومكتوبة بوضوح — تسليم PDF أو مستندات</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
+              أبحاث وملخصات منظمة حسب طلبك
+              <span class="block text-transparent bg-clip-text bg-gradient-to-l from-teal-600 to-indigo-600 mt-1">
+                بهيكلة واضحة ومصادر مرتبة
+              </span>
+            </h1>
+
+            <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
+              نُعدّ لك أبحاثاً مبسطة، وتقارير منظمة، وملخصات للمواضيع والدروس، وملفات توثيق للمشاريع بناءً على طلبك المحدد. نلتزم بتقسيم واضح للعناوين، وتوثيق منظم للمصادر، واتفاق شفاف على النطاق والمقابل قبل البدء.
+            </p>
+
+            <div class="p-3.5 rounded-2xl bg-indigo-50/90 border border-indigo-200 flex flex-wrap items-center justify-between gap-2 max-w-2xl">
+              <div class="text-xs sm:text-sm font-bold text-indigo-950">
+                التواصل وإرسال الطلبات عبر ديسكورد (Discord) فقط على اليوزر:
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-xl bg-white border border-indigo-200 text-indigo-700 font-extrabold text-sm select-all">.3lal</span>
+                <button type="button" id="copyProviderDiscordBtn" class="px-3 py-1 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition-colors">
+                  نسخ اليوزر
+                </button>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 text-xs sm:text-sm font-bold leading-relaxed max-w-2xl">
+              تنبيه مهم: إرسال الطلب في الموقع لا يُغني عن التواصل المباشر — يجب عليك التواصل معي عبر ديسكورد على اليوزر <span class="px-2 py-0.5 rounded-lg bg-white border border-amber-300 text-indigo-700 font-extrabold select-all">.3lal</span> بعد تعبئة الطلب لإتمام الاتفاق وتأكيد النطاق والدفع والتسليم.
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3 pt-1">
+              <a href="#request-form" class="px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm shadow-md transition-all flex items-center gap-2">
+                <span>تقديم طلب بحث أو ملف</span>
+                <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+              <a href="#samples" class="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 font-bold text-sm transition-colors">
+                استعراض نماذج الهيكلة
+              </a>
+            </div>
+
+            <!-- نقاط الثقة الثلاث -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4">
+              <div class="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-xs">
+                <div class="font-bold text-slate-900 text-sm">هيكلة واضحة ومنطقية</div>
+                <p class="text-xs text-slate-500 mt-1">مقدمة، محاور رئيسية، خلاصة، ومراجع منظمة</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-xs">
+                <div class="font-bold text-slate-900 text-sm">اتفاق واضح قبل البدء</div>
+                <p class="text-xs text-slate-500 mt-1">تحديد النطاق والمدة وآلية الدفعات بشفافية</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-xs">
+                <div class="font-bold text-slate-900 text-sm">تسليم جاهز للمراجعة</div>
+                <p class="text-xs text-slate-500 mt-1">بصيغة PDF أو مستند نصي قابل للتعديل</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- بطاقة معاينة سريعة لشكل الملف النهائي -->
+          <div class="lg:col-span-5">
+            <div class="rounded-3xl bg-white border border-slate-200 shadow-xl p-5 sm:p-6 space-y-4">
+              <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-teal-500"></span>
+                  <span class="text-xs font-bold text-slate-700">نموذج معيار تسليم الملف</span>
+                </div>
+                <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 font-semibold">PDF + Docs</span>
+              </div>
+
+              <div class="space-y-2.5 text-sm">
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/70">
+                  <div class="text-xs text-teal-700 font-bold mb-0.5">01. العنوان والمقدمة</div>
+                  <p class="text-xs text-slate-600">توضيح فكرة الموضوع وأهميته وأهداف التقرير أو الملخص بدقة.</p>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/70">
+                  <div class="text-xs text-indigo-700 font-bold mb-0.5">02. المحاور والتفاصيل المنظمة</div>
+                  <p class="text-xs text-slate-600">عناوين فرعية ونقاط مرقمة ومقارنات مبسطة يسهل قراءتها وفهمها.</p>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/70">
+                  <div class="text-xs text-slate-800 font-bold mb-0.5">03. الخلاصة والمصادر</div>
+                  <p class="text-xs text-slate-600">تلخيص عملي لأهم النتائج مع ذكر المراجع والمصادر المعتمدة.</p>
+                </div>
+              </div>
+
+              <div class="pt-2 flex items-center justify-between text-xs text-slate-500 border-t border-slate-100">
+                <span>قابل للتعديل والمراجعة حسب المتفق</span>
+                <button type="button" onclick="openSampleModal('cyber-osint')" class="text-teal-700 font-bold hover:underline">
+                  معاينة نموذج كامل ←
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم النماذج والأقسام التفاعلية -->
+    <section id="samples" class="py-14 sm:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-3 py-1 rounded-full">
+              نماذج وأقسام الخدمة
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">
+              كيف يظهر شكل البحث أو الملف قبل الطلب؟
+            </h2>
+            <p class="text-slate-600 text-sm sm:text-base mt-1">
+              اختر القسم لمعرفة طبيعة الملفات التي نعدّها، وافتح أي نموذج لمعاينة هيكله التفصيلي.
+            </p>
+          </div>
+        </div>
+
+        <!-- أزرار الفلترة / التبويبات -->
+        <div id="categoryTabs" class="flex flex-wrap gap-2 mb-8" role="tablist" aria-label="تصنيفات النماذج">
+          <button type="button" data-category="all" class="tab-btn active px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-teal-600 text-white shadow-xs transition-all">
+            جميع الأقسام
+          </button>
+          <button type="button" data-category="tech" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition-all">
+            التقنية والأمن السيبراني
+          </button>
+          <button type="button" data-category="virtualization" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition-all">
+            الأنظمة الوهمية
+          </button>
+          <button type="button" data-category="summaries" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition-all">
+            التلخيص والتقارير
+          </button>
+          <button type="button" data-category="projects" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition-all">
+            توثيق المشاريع
+          </button>
+        </div>
+
+        <!-- شبكة بطاقات النماذج -->
+        <div id="samplesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- يتم تعبئتها أو تحديثها عبر JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم كيف تطلب وتبدأ + حاسبة تقدير النطاق -->
+    <section id="estimator" class="py-14 sm:py-20 bg-white border-y border-slate-200/80">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-10">
+          <span class="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 px-3 py-1 rounded-full">
+            كيف تطلب وتبدأ
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">
+            خطوات واضحة وتقدير أولي لنطاق العمل
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-1">
+            حدّد نوع الملف وعدد الصفحات التقريبي وسرعة التسليم لتكوين تصور مبدئي قبل إرسال طلبك.
+          </p>
+        </div>
+
+        <!-- خطوات العمل الثلاث -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
+            <div class="w-8 h-8 rounded-lg bg-teal-600 text-white font-extrabold text-sm flex items-center justify-center mb-3">1</div>
+            <h3 class="font-bold text-slate-900 text-base">إرسال الفكرة والمتطلبات</h3>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
+              توضح الموضوع المطلوب، الهدف من الملف، الصيغة المناسبة (PDF أو مستند قابل للتعديل)، والموعد المطلوب.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
+            <div class="w-8 h-8 rounded-lg bg-indigo-600 text-white font-extrabold text-sm flex items-center justify-center mb-3">2</div>
+            <h3 class="font-bold text-slate-900 text-base">تأكيد النطاق والاتفاق</h3>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
+              نتفق بوضوح على المحاور الرئيسية، المقابل المتفق عليه، وآلية الدفع (غالباً عربون مبدئي لتأكيد الجدّية والباقي عند التسليم).
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
+            <div class="w-8 h-8 rounded-lg bg-slate-900 text-white font-extrabold text-sm flex items-center justify-center mb-3">3</div>
+            <h3 class="font-bold text-slate-900 text-base">الإعداد والتسليم المنظم</h3>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
+              نجهز الملف بتنسيق مرتب ومقروء مع مراجعة العناصر المتفق عليها وتسليمه في الموعد المحدد.
+            </p>
+          </div>
+        </div>
+
+        <!-- حاسبة تقدير النطاق والاتفاق -->
+        <div class="rounded-3xl bg-slate-50 border border-slate-200 p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-7 space-y-5">
+            <h3 class="text-lg font-extrabold text-slate-900">أداة تقدير نطاق الطلب</h3>
+
+            <div>
+              <label for="estType" class="block text-xs sm:text-sm font-bold text-slate-700 mb-2">نوع العمل المطلوب</label>
+              <select id="estType" class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                <option value="summary" data-label="ملخص موضوع أو درس منظم" data-base="3">ملخص موضوع أو درس منظم</option>
+                <option value="research" data-label="بحث مبسط أو تقرير منظم بمصادر" data-base="5">بحث مبسط أو تقرير منظم بمصادر</option>
+                <option value="projectDoc" data-label="ملف توثيق مشروع أو خطة عمل" data-base="7">ملف توثيق مشروع أو خطة عمل</option>
+              </select>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label for="estPages" class="text-xs sm:text-sm font-bold text-slate-700">الحجم التقريبي (عدد الصفحات)</label>
+                <span id="estPagesLabel" class="text-xs font-bold px-2.5 py-1 rounded-lg bg-teal-100 text-teal-800">5 صفحات</span>
+              </div>
+              <input id="estPages" type="range" min="2" max="20" step="1" value="5" class="w-full accent-teal-600 cursor-pointer" />
+              <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+                <span>صفحتان (مختصر)</span>
+                <span>10 صفحات (متوسط)</span>
+                <span>20 صفحة (مفصل)</span>
+              </div>
+            </div>
+
+            <div>
+              <span class="block text-xs sm:text-sm font-bold text-slate-700 mb-2">سرعة التسليم</span>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5" id="urgencyOptions">
+                <button type="button" data-urgency="normal" data-mult="1" data-days="3 إلى 5 أيام" class="urg-btn active px-3.5 py-2.5 rounded-xl border border-teal-600 bg-teal-600 text-white text-xs font-bold transition-all">
+                  عادي (3–5 أيام)
+                </button>
+                <button type="button" data-urgency="fast" data-mult="1.25" data-days="48 ساعة" class="urg-btn px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-700 text-xs font-bold hover:bg-slate-100 transition-all">
+                  مستعجل (48 ساعة)
+                </button>
+                <button type="button" data-urgency="urgent" data-mult="1.5" data-days="خلال 24 ساعة" class="urg-btn px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-700 text-xs font-bold hover:bg-slate-100 transition-all">
+                  عاجل جداً (24 ساعة)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ملخص التقدير وملاحظة الاتفاق -->
+          <div class="lg:col-span-5 rounded-2xl bg-white border border-slate-200 p-5 sm:p-6 shadow-xs space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-500">تقدير استرشادي للمقابل</span>
+              <span id="estDurationBadge" class="text-xs font-bold px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700">المدة: 3 إلى 5 أيام</span>
+            </div>
+
+            <div class="py-2 border-b border-slate-100">
+              <div class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                <span id="estPriceRange">5 – 10</span> <span class="text-sm font-bold text-slate-500">ر.س (تقديري)</span>
+              </div>
+              <p class="text-xs text-slate-500 mt-1">النطاق التقديري من 5 إلى 30 ر.س، ويتحدد السعر النهائي بدقة بعد الاطلاع على تفاصيل الموضوع والمراجع المطلوبة.</p>
+            </div>
+
+            <div class="space-y-2 text-xs text-slate-600 leading-relaxed bg-teal-50/60 border border-teal-100 rounded-xl p-3.5">
+              <div class="font-bold text-teal-900">ملاحظة الاتفاق والدفع:</div>
+              <p>• يتم الاتفاق على العناصر والمقابل بشكل واضح قبل البدء في الكتابة.</p>
+              <p>• يُعتمد عادةً عربون تأكيد جدّية (مثلاً 30%–50%) عند بدء العمل، والباقي عند إتمام التسليم المتفق عليه.</p>
+            </div>
+
+            <button
+              type="button"
+              id="applyEstimateToFormBtn"
+              class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm transition-colors shadow-xs"
+            >
+              نقل هذا النطاق إلى نموذج الطلب ↓
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم نموذج طلب البحث أو الملف -->
+    <section id="request-form" class="py-14 sm:py-20">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-3 py-1 rounded-full">
+            اطلب بحثك أو ملفك
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">
+            جهّز ملخص طلبك لإرساله بوضوح
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-1">
+            أدخل تفاصيل موضوعك لتوليد نص طلب مرتب وجاهز للنسخ، ثم <strong class="text-amber-700">تواصل معي مباشرة عبر ديسكورد على اليوزر</strong> <strong class="text-indigo-700 select-all">.3lal</strong> لإتمام الاتفاق والتأكيد.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
+          <!-- نموذج الإدخال -->
+          <form id="briefForm" class="lg:col-span-7 rounded-3xl bg-white border border-slate-200 p-6 sm:p-7 shadow-xs space-y-4">
+            <div>
+              <label for="topicInput" class="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">الموضوع أو عنوان البحث / الملخص *</label>
+              <input
+                id="topicInput"
+                type="text"
+                required
+                placeholder="مثال: بحث مبسط عن الأنظمة الوهمية وأهميتها في عزل التجارب"
+                class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
+              />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="workTypeSelect" class="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">نوع العمل المطلوب</label>
+                <select id="workTypeSelect" class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                  <option value="ملخص موضوع أو درس منظم">ملخص موضوع أو درس منظم</option>
+                  <option value="بحث مبسط أو تقرير منظم بمصادر">بحث مبسط أو تقرير منظم بمصادر</option>
+                  <option value="ملف توثيق مشروع أو خطة عمل">ملف توثيق مشروع أو خطة عمل</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="pagesInput" class="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">عدد الصفحات التقريبي</label>
+                <input
+                  id="pagesInput"
+                  type="number"
+                  min="1"
+                  max="100"
+                  value="5"
+                  class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="formatSelect" class="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">صيغة التسليم المفضلة</label>
+                <select id="formatSelect" class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                  <option value="PDF منسق">PDF منسق</option>
+                  <option value="مستند نصي قابل للتعديل (Docs / Word)">مستند نصي قابل للتعديل (Docs / Word)</option>
+                  <option value="PDF + مستند قابل للتعديل">PDF + مستند قابل للتعديل</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="deadlineInput" class="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">سرعة التسليم / الموعد المطلوب</label>
+                <input
+                  id="deadlineInput"
+                  type="text"
+                  placeholder="مثال: عادي (3–5 أيام) أو خلال 48 ساعة"
+                  class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="detailsInput" class="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">العناصر المطلوبة أو ملاحظات إضافية</label>
+              <textarea
+                id="detailsInput"
+                rows="3"
+                placeholder="اذكر المحاور المهمة، أو أي مصادر/ملاحظات تود الالتزام بها..."
+                class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
+              ></textarea>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="discordInput" class="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">
+                  يوزر ديسكورد (Discord Username) <span class="text-rose-600">*</span>
+                </label>
+                <input
+                  id="discordInput"
+                  type="text"
+                  required
+                  placeholder="مثال: username أو user.name"
+                  class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                />
+                <p class="text-[11px] text-indigo-700 font-semibold mt-1">التواصل يتم عبر ديسكورد (Discord) فقط.</p>
+              </div>
+
+              <div>
+                <label for="paymentNoteInput" class="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">ملاحظة الدفع والاتفاق</label>
+                <input
+                  id="paymentNoteInput"
+                  type="text"
+                  placeholder="مثال: جاهز لاتفاق واضح وعربون بعد تأكيد النطاق"
+                  class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                />
+              </div>
+            </div>
+
+            <label for="discordContactConfirmCheckbox" class="flex items-start gap-2.5 p-3.5 rounded-2xl bg-amber-50/90 border border-amber-200 cursor-pointer select-none">
+              <input
+                id="discordContactConfirmCheckbox"
+                type="checkbox"
+                required
+                class="mt-1 w-4 h-4 accent-indigo-600 rounded cursor-pointer shrink-0"
+              />
+              <span class="text-xs sm:text-sm font-bold text-slate-800 leading-relaxed">
+                أقر وأتعهد بأنني سأتواصل مع <span class="text-indigo-700 font-extrabold select-all">.3lal</span> عبر ديسكورد (Discord) بعد إرسال الطلب لإتمام الاتفاق وتأكيد التفاصيل والدفع والتسليم، وأفهم أن التواصل يتم عبر ديسكورد فقط. <span class="text-rose-600">*</span>
+              </span>
+            </label>
+
+            <div id="formAlertBox" class="hidden rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-xs sm:text-sm font-bold text-rose-700"></div>
+
+            <div id="formSavedBanner" class="hidden rounded-2xl border border-amber-300 bg-amber-50 px-4 py-3.5 text-xs sm:text-sm font-bold text-amber-950 space-y-2">
+              <div id="formSavedBannerText"></div>
+              <div class="flex flex-wrap items-center gap-2 pt-1">
+                <button type="button" id="bannerCopyDiscordBtn" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition-colors">
+                  نسخ يوزر ديسكورد (.3lal)
+                </button>
+                <button type="button" id="bannerCopyBriefBtn" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-colors">
+                  نسخ ملخص الطلب
+                </button>
+                <button type="button" id="reopenOrderModalBtn" class="px-3 py-1.5 rounded-xl bg-white hover:bg-amber-100 text-amber-950 border border-amber-300 text-xs font-bold transition-colors">
+                  عرض تنبيه التواصل
+                </button>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3 pt-1">
+              <button type="submit" id="submitOrderBtn" class="px-5 py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm shadow-xs transition-colors">
+                إرسال وحفظ الطلب
+              </button>
+              <button type="button" id="copyBriefBtn" class="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm transition-colors">
+                نسخ ملخص الطلب
+              </button>
+              <button type="button" id="resetBriefBtn" class="px-4 py-3 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-slate-700 font-bold text-xs sm:text-sm transition-colors">
+                إعادة ضبط الحقول
+              </button>
+            </div>
+
+            <div id="copyFeedback" class="hidden rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-xs sm:text-sm font-bold text-emerald-800"></div>
+          </form>
+
+          <!-- معاينة نص الطلب المولّد -->
+          <div class="lg:col-span-5 rounded-3xl bg-slate-900 text-slate-100 p-6 shadow-xl space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <span class="text-xs font-extrabold text-teal-300">ملخص الطلب الجاهز للإرسال عبر ديسكورد</span>
+              <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-bold">إلى: .3lal</span>
+            </div>
+            <pre id="generatedBriefOutput" class="whitespace-pre-wrap text-xs sm:text-[13px] leading-relaxed font-sans text-slate-200 bg-slate-950/70 border border-slate-800 rounded-2xl p-4">نوع العمل: ملخص موضوع أو درس منظم
+عدد الصفحات التقريبي: 5 صفحات
+الصيغة المطلوبة: PDF منسق
+الموعد / السرعة: عادي (3–5 أيام)
+السعر التقديري: 75 – 105 ر.س (تقديري)
+يوزر ديسكورد: [إجباري]
+التفاصيل: [أدخل تفاصيلك أو ملاحظاتك هنا]
+شرط الإتمام: التواصل المباشر مع .3lal عبر ديسكورد لإتمام الاتفاق والتأكيد
+التواصل: ديسكورد (Discord) فقط</pre>
+            <p class="text-[11px] text-slate-400 leading-relaxed">
+              بعد حفظ الطلب ونسخ الملخص، تواصل معي على ديسكورد (<strong class="text-indigo-300 select-all">.3lal</strong>) وأرسل له الملخص لتأكيد الطلب والاتفاق.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم لوحة طلبات الأدمن المحمية بكلمة المرور -->
+    <section id="admin-section" class="py-14 sm:py-20 bg-white border-t border-slate-200/80">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 px-3 py-1 rounded-full">
+              إدارة الطلبات المحلية
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">
+              لوحة طلبات الأدمن
+            </h2>
+            <p class="text-slate-600 text-xs sm:text-sm mt-1">
+              محمية بكلمة مرور لعرض الطلبات المحفوظة في هذا المتصفح، تحديث حالاتها، نسخ بيانات العملاء، أو إخفاء اللوحة.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            id="toggleAdminVisibilityBtn"
+            class="self-start sm:self-auto px-4 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-slate-800 text-xs sm:text-sm font-bold transition-colors"
+          >
+            إخفاء / إظهار اللوحة
+          </button>
+        </div>
+
+        <div id="adminPanelWrapper" class="space-y-5">
+          <!-- بطاقة تسجيل الدخول للأدمن -->
+          <div id="adminLoginCard" class="rounded-3xl bg-slate-50 border border-slate-200 p-6 sm:p-7 max-w-md space-y-4">
+            <h3 class="text-base font-extrabold text-slate-900">دخول الأدمن</h3>
+            <form id="adminLoginForm" class="space-y-3">
+              <div>
+                <label for="adminPasswordInput" class="block text-xs font-bold text-slate-700 mb-1.5">كلمة المرور</label>
+                <input
+                  id="adminPasswordInput"
+                  type="password"
+                  required
+                  placeholder="أدخل كلمة مرور الأدمن"
+                  class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+              </div>
+              <div id="adminLoginError" class="hidden rounded-xl bg-rose-50 border border-rose-200 px-3.5 py-2 text-xs font-bold text-rose-700"></div>
+              <button type="submit" id="adminLoginSubmitBtn" class="w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-sm font-bold transition-colors">
+                الدخول إلى لوحة الطلبات
+              </button>
+            </form>
+          </div>
+
+          <!-- لوحة إدارة الطلبات بعد تسجيل الدخول -->
+          <div id="adminDashboard" class="hidden rounded-3xl bg-slate-50 border border-slate-200 p-6 sm:p-7 space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-4">
+              <div class="flex flex-wrap items-center gap-2.5">
+                <span class="text-sm font-extrabold text-slate-900">الطلبات المحفوظة</span>
+                <span id="adminOrdersCount" class="px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-800 text-xs font-extrabold">0</span>
+                <span id="adminSyncStatusBadge" class="px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-200 text-xs font-bold">
+                  جاري فحص المزامنة...
+                </span>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-2">
+                <button type="button" id="refreshCloudOrdersBtn" class="px-3.5 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold transition-colors">
+                  تحديث الطلبات
+                </button>
+                <button type="button" id="copyAllOrdersBtn" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-colors">
+                  نسخ جميع الطلبات
+                </button>
+                <button type="button" id="clearAllOrdersBtn" class="px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold transition-colors">
+                  حذف الكل
+                </button>
+                <button type="button" id="adminLogoutBtn" class="px-3.5 py-2 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-slate-800 text-xs font-bold transition-colors">
+                  تسجيل الخروج
+                </button>
+              </div>
+            </div>
+
+            <!-- مؤشر تفصيلي لحالة السحابة وإعدادات Firebase / Discord Webhook -->
+            <div class="rounded-2xl bg-white border border-slate-200 p-4 sm:p-5 space-y-4">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                <div class="space-y-1">
+                  <div class="text-xs sm:text-sm font-extrabold text-slate-900">حالة المزامنة السحابية وإشعارات ديسكورد</div>
+                  <p id="syncDetailMessage" class="text-xs text-slate-600">
+                    يتم حفظ الطلبات محلياً ومزامنتها سحابياً عبر Firestore عند توفر إعدادات Firebase، مع دعم إشعار فوري عبر Discord Webhook.
+                  </p>
+                </div>
+                <span id="syncModeChip" class="self-start md:self-auto px-3 py-1 rounded-xl bg-slate-100 text-slate-800 text-xs font-extrabold">
+                  الوضع: محلي احتياطي
+                </span>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <!-- إعداد Discord Webhook الاختياري -->
+                <form id="webhookSettingsForm" class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2.5">
+                  <label for="discordWebhookInput" class="block text-xs font-extrabold text-slate-800">
+                    رابط Discord Webhook (اختياري — إشعار فوري عند أي طلب)
+                  </label>
+                  <input
+                    id="discordWebhookInput"
+                    type="url"
+                    placeholder="https://discord.com/api/webhooks/..."
+                    class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  />
+                  <div class="flex flex-wrap items-center gap-2">
+                    <button type="submit" id="saveWebhookBtn" class="px-3.5 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition-colors">
+                      حفظ Webhook
+                    </button>
+                    <button type="button" id="testWebhookBtn" class="px-3.5 py-1.5 rounded-xl bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 text-xs font-bold transition-colors">
+                      إرسال إشعار تجريبي
+                    </button>
+                    <button type="button" id="clearWebhookBtn" class="px-3.5 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-bold transition-colors">
+                      مسح الرابط
+                    </button>
+                  </div>
+                  <p class="text-[11px] text-amber-800 font-semibold leading-relaxed">
+                    تنبيه أمني: لأن رابط Webhook يعمل من المتصفح، يُفضل إبقاءه مخصصاً لقناة طلبات خاصة بك وعدم مشاركة الرابط علناً.
+                  </p>
+                </form>
+
+                <!-- إعداد Firebase JSON (اختياري في حال عدم وجود __firebase_config مضمن) -->
+                <form id="firebaseConfigForm" class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2.5">
+                  <label for="firebaseConfigInput" class="block text-xs font-extrabold text-slate-800">
+                    إعدادات Firebase (JSON اختياري للمزامنة بين كل الأجهزة)
+                  </label>
+                  <textarea
+                    id="firebaseConfigInput"
+                    rows="2"
+                    placeholder='{"apiKey":"...","authDomain":"...","projectId":"...","appId":"..."}'
+                    class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  ></textarea>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <button type="submit" id="saveFirebaseConfigBtn" class="px-3.5 py-1.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold transition-colors">
+                      حفظ وتفعيل Firebase
+                    </button>
+                    <button type="button" id="clearFirebaseConfigBtn" class="px-3.5 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-bold transition-colors">
+                      مسح إعداد Firebase
+                    </button>
+                  </div>
+                  <p class="text-[11px] text-slate-500 leading-relaxed">
+                    ملاحظة: إذا لم يُضبط Firebase بعد، تبقى الطلبات محفوظة في هذا المتصفح ويمكنك تفعيل Discord Webhook لاستلام كل طلب فوراً على ديسكورد من أي جهاز.
+                  </p>
+                </form>
+              </div>
+            </div>
+
+            <div id="adminActionFeedback" class="hidden rounded-xl bg-emerald-50 border border-emerald-200 px-4 py-2.5 text-xs font-bold text-emerald-800"></div>
+
+            <div id="adminOrdersList" class="space-y-4"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- التذييل Footer -->
+  <footer class="bg-white border-t border-slate-200 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="font-bold text-slate-900 text-sm">مُسَوَّدَة وتنسيق — خدمة إعداد الأبحاث والملخصات المنظمة</div>
+        <div class="text-xs text-slate-500">التواصل عبر ديسكورد (Discord) فقط: <strong class="text-indigo-700 select-all">.3lal</strong> • تسليم PDF ومستندات منظمة</div>
+      </div>
+      <p class="text-xs text-slate-500 leading-relaxed max-w-4xl">
+        تنويه: تركز هذه الخدمة على كتابة الأبحاث المبسطة، وتلخيص المواضيع، وتنسيق الملفات والملخصات بشكل منظم وواضح وفق شروط واتفاق واضح بين الطرفين قبل بدء العمل، ويجب على العميل التواصل مع <strong class="select-all">.3lal</strong> عبر ديسكورد لإتمام الاتفاق والتأكيد، ويتم التواصل حصراً عبر ديسكورد (<strong class="select-all">.3lal</strong>) دون أي رسوم اشتراك مسبقة على المنشئ.
+      </p>
+    </div>
+  </footer>
+
+  <!-- نافذة معاينة النموذج التفصيلي (Modal) -->
+  <div id="sampleModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 p-4" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[88vh] overflow-y-auto border border-slate-200 shadow-2xl p-6 sm:p-7 space-y-5 animate-fade-up">
+      <div class="flex items-start justify-between gap-4 border-b border-slate-100 pb-4">
+        <div>
+          <span id="modalCategoryBadge" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-teal-50 text-teal-700 inline-block mb-1.5">التصنيف</span>
+          <h3 id="modalTitle" class="text-xl font-extrabold text-slate-900">عنوان النموذج</h3>
+        </div>
+        <button id="closeModalBtn" type="button" aria-label="إغلاق النافذة" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <p id="modalSummary" class="text-sm text-slate-600 leading-relaxed"></p>
+
+      <div class="space-y-3">
+        <h4 class="text-xs font-extrabold uppercase tracking-wider text-slate-800">الهيكل المقترح للملف</h4>
+        <div id="modalOutline" class="space-y-2.5"></div>
+      </div>
+
+      <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+        <span id="modalFormatNote" class="text-xs text-slate-500 font-medium"></span>
+        <button id="useSampleInFormBtn" type="button" class="px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs sm:text-sm font-bold transition-colors">
+          اطلب ملفاً بهيكلة مشابهة
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- نافذة تنبيه التواصل الإلزامي عبر ديسكورد بعد إتمام الطلب -->
+  <div id="orderCompletionModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/70 p-4" role="dialog" aria-modal="true" aria-labelledby="completionModalTitle">
+    <div class="bg-white rounded-3xl max-w-lg w-full border border-amber-300 shadow-2xl p-6 sm:p-7 space-y-5 animate-fade-up">
+      <div class="flex items-start justify-between gap-3 border-b border-slate-100 pb-4">
+        <div class="space-y-1">
+          <span class="inline-flex items-center gap-1.5 text-xs font-extrabold px-3 py-1 rounded-full bg-amber-100 text-amber-900">
+            تم تسجيل الطلب — خطوة إتمام مطلوبة
+          </span>
+          <h3 id="completionModalTitle" class="text-xl sm:text-2xl font-extrabold text-slate-900 pt-1">
+            لازم تتواصل معي على ديسكورد (.3lal)
+          </h3>
+        </div>
+        <button id="closeCompletionModalBtn" type="button" aria-label="إغلاق نافذة التنبيه" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-xs sm:text-sm text-amber-950 font-bold leading-relaxed space-y-2">
+        <p id="completionOrderMeta" class="text-indigo-900 font-extrabold"></p>
+        <p>
+          إرسال الطلب في الموقع وحده لا يُتمّ الاتفاق؛ لازم تتواصل معي على ديسكورد على اليوزر <span class="px-2 py-0.5 rounded-lg bg-white border border-amber-300 text-indigo-700 font-extrabold select-all">.3lal</span> لتأكيد الطلب والاتفاق وإتمام التفاصيل والدفع والتسليم.
+        </p>
+      </div>
+
+      <div class="flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-slate-900 text-white">
+        <div class="text-xs sm:text-sm">
+          <span class="text-slate-400 block text-[11px]">حساب ديسكورد الرسمي للتواصل</span>
+          <span class="font-extrabold text-indigo-300 text-base select-all">.3lal</span>
+        </div>
+        <button type="button" id="modalCopyDiscordBtn" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs sm:text-sm font-bold transition-colors">
+          نسخ اليوزر (.3lal)
+        </button>
+      </div>
+
+      <div id="completionModalFeedback" class="hidden rounded-xl bg-emerald-50 border border-emerald-200 px-3.5 py-2 text-xs font-bold text-emerald-800"></div>
+
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-1">
+        <button type="button" id="modalCopyBriefBtn" class="flex-1 py-3 px-4 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs sm:text-sm font-bold transition-colors">
+          نسخ ملخص الطلب فوراً
+        </button>
+        <button type="button" id="dismissCompletionModalBtn" class="py-3 px-4 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-slate-800 text-xs sm:text-sm font-bold transition-colors">
+          فهمت وسأتواصل عبر ديسكورد
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // بيانات النماذج والأقسام التفاعلية
+    const SAMPLE_ITEMS = [
+      {
+        id: 'cyber-osint',
+        category: 'tech',
+        categoryLabel: 'التقنية والأمن السيبراني',
+        title: 'تقرير مبسط: أساسيات الوعي الرقمي وجمع المعلومات من المصادر المفتوحة',
+        description: 'يشرح كيف تتكون البصمة الرقمية للمعلومات المتاحة علناً، وكيف يرتبط فهمها بتقليل مخاطر كشف البيانات الشخصية بأسلوب واضح ومرتب.',
+        formatNote: 'نموذج تسليم: PDF منسق (6–8 صفحات)',
+        outline: [
+          { section: '1. المقدمة والمفهوم العام', detail: 'تعريف المصادر المتاحة للعلن والفرق بين المعلومات العامة والبيانات الحساسة.' },
+          { section: '2. كيف تتراكم البصمة الرقمية؟', detail: 'استعراض أمثلة عملية على الحسابات والملفات والبيانات الظاهرة للعامة.' },
+          { section: '3. إجراءات الحماية والوقاية', detail: 'خطوات عملية لتقليل التعرض الرقمي ومراجعة إعدادات الخصوصية بشكل دوري.' },
+          { section: '4. الخلاصة والمراجع', detail: 'ملخص لأهم النقاط التطبيقية مع قائمة مصادر منظمة.' }
+        ]
+      },
+      {
+        id: 'virt-isolation',
+        category: 'virtualization',
+        categoryLabel: 'الأنظمة الوهمية',
+        title: 'ملف تقني: دور الأنظمة الوهمية (Virtualization) في عزل التجارب والاختبارات',
+        description: 'يوضح آلية عمل البيئات الوهمية، وكيف تفصل أنظمة التجربة عن النظام الأساسي، مع مراعاة موارد الأجهزة المتوسطة أو القديمة.',
+        formatNote: 'نموذج تسليم: PDF + مستند قابل للتعديل',
+        outline: [
+          { section: '1. فكرة المحاكاة الافتراضية', detail: 'كيف يعمل المشرف الافتراضي (Hypervisor) وكيف تُوزع الموارد بين النظام المضيف والضيف.' },
+          { section: '2. مزايا العزل واللقطات (Snapshots)', detail: 'أهمية فصل التجارب عن النظام الأساسي وإمكانية استعادة حالة سابقة بسهولة.' },
+          { section: '3. موازنة الأداء على الأجهزة المحدودة', detail: 'تخصيص الذاكرة والتخزين بعناية لتفادي البطء وضمان استقرار التجربة.' },
+          { section: '4. الخاتمة والتوصيات', detail: 'قواعد أساسية للاستخدام الآمن والمنظم للبيئات الافتراضية.' }
+        ]
+      },
+      {
+        id: 'topic-summary',
+        category: 'summaries',
+        categoryLabel: 'التلخيص والتقارير',
+        title: 'ملخص منظم: تحويل مادة أو موضوع طويل إلى نقاط واضحة وسهلة المراجعة',
+        description: 'إعادة صياغة المعلومات المتفرقة أو الطويلة في ملخص هرمي يضم المفاهيم الأساسية، الجداول أو المقارنات البسيطة، وأسئلة مراجعة سريعة.',
+        formatNote: 'نموذج تسليم: PDF أو مستند نصي منظم',
+        outline: [
+          { section: '1. الفكرة المركزية للموضوع', detail: 'عرض سريع يربط الأجزاء الرئيسية ببعضها دون حشو أو تعقيد.' },
+          { section: '2. المحاور والمفاهيم الأساسية', detail: 'تقسيم المحتوى إلى عناصر مرقمة وتعريفات مختصرة واضحة.' },
+          { section: '3. نقاط مقارنة أو تلخيص سريع', detail: 'إبراز الفروق أو الخطوات الأساسية في صيغة يسهل استذكارها.' },
+          { section: '4. خلاصة ختامية', detail: 'أهم ما يجب تذكره عند مراجعة الموضوع سريعاً.' }
+        ]
+      },
+      {
+        id: 'project-doc',
+        category: 'projects',
+        categoryLabel: 'توثيق المشاريع',
+        title: 'ملف توثيق مشروع: عرض الفكرة، مراحل التنفيذ، والتحديات والحلول',
+        description: 'مناسب لتوثيق مشروع رقمي أو برمجي أو مبادرة بأسلوب احترافي يوضح المشكلة، الحل المقترح، خطوات العمل، والنتائج المتحققة.',
+        formatNote: 'نموذج تسليم: مستند قابل للتعديل + PDF',
+        outline: [
+          { section: '1. وصف المشروع والهدف', detail: 'تحديد المشكلة التي يعالجها المشروع والفئة المستهدفة بوضوح.' },
+          { section: '2. مكونات العمل ومراحله', detail: 'شرح الأدوات المستخدمة وتسلسل التنفيذ من الفكرة إلى النسخة الجاهزة.' },
+          { section: '3. التحديات وكيف تم التعامل معها', detail: 'رصد أبرز العقبات العملية والحلول المنطقية التي طُبقت لتجاوزها.' },
+          { section: '4. التطوير المستقبلي والملخص', detail: 'تصور للتحسينات القادمة وخلاصة عامة للمشروع.' }
+        ]
+      }
+    ];
+
+    let activeCategory = 'all';
+    let currentModalItem = null;
+    let selectedUrgency = { key: 'normal', mult: 1, days: '3 إلى 5 أيام', label: 'عادي (3–5 أيام)' };
+
+    // عناصر DOM الرئيسية
+    const samplesGrid = document.getElementById('samplesGrid');
+    const categoryTabs = document.getElementById('categoryTabs');
+    const sampleModal = document.getElementById('sampleModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const useSampleInFormBtn = document.getElementById('useSampleInFormBtn');
+
+    // رسم بطاقات النماذج حسب القسم المحدد
+    function renderSamples() {
+      const filtered = activeCategory === 'all'
+        ? SAMPLE_ITEMS
+        : SAMPLE_ITEMS.filter((item) => item.category === activeCategory);
+
+      samplesGrid.innerHTML = filtered.map((item) => `
+        <article class="rounded-2xl bg-white border border-slate-200 p-6 shadow-xs hover:shadow-md hover:border-teal-300 transition-all flex flex-col justify-between gap-5 animate-fade-up">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-xs font-bold px-3 py-1 rounded-full bg-teal-50 text-teal-800">${item.categoryLabel}</span>
+              <span class="text-[11px] text-slate-500 font-medium">${item.formatNote}</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 leading-snug">${item.title}</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">${item.description}</p>
+            <div class="pt-1 space-y-1.5">
+              ${item.outline.slice(0, 2).map((o) => `
+                <div class="text-xs text-slate-600 bg-slate-50 border border-slate-200/70 rounded-xl px-3 py-2">
+                  <span class="font-bold text-slate-800">${o.section}:</span> ${o.detail}
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+            <button
+              type="button"
+              onclick="openSampleModal('${item.id}')"
+              class="text-xs sm:text-sm font-bold text-teal-700 hover:text-teal-800 flex items-center gap-1"
+            >
+              <span>معاينة الهيكل الكامل</span>
+              <span aria-hidden="true">←</span>
+            </button>
+            <button
+              type="button"
+              onclick="prefillFromSample('${item.id}')"
+              class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-colors"
+            >
+              طلب مشابه
+            </button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    // مستمع أزرار الفلترة
+    categoryTabs.addEventListener('click', (e) => {
+      const btn = e.target.closest('.tab-btn');
+      if (!btn) return;
+
+      activeCategory = btn.dataset.category;
+      document.querySelectorAll('.tab-btn').forEach((b) => {
+        b.classList.remove('active', 'bg-teal-600', 'text-white', 'shadow-xs');
+        b.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+      });
+
+      btn.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+      btn.classList.add('active', 'bg-teal-600', 'text-white', 'shadow-xs');
+
+      renderSamples();
+    });
+
+    // فتح نافذة معاينة النموذج
+    window.openSampleModal = function (id) {
+      const item = SAMPLE_ITEMS.find((s) => s.id === id);
+      if (!item) return;
+
+      currentModalItem = item;
+      document.getElementById('modalCategoryBadge').textContent = item.categoryLabel;
+      document.getElementById('modalTitle').textContent = item.title;
+      document.getElementById('modalSummary').textContent = item.description;
+      document.getElementById('modalFormatNote').textContent = item.formatNote;
+      document.getElementById('modalOutline').innerHTML = item.outline.map((sec) => `
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80">
+          <div class="text-xs sm:text-sm font-bold text-slate-900">${sec.section}</div>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1">${sec.detail}</p>
+        </div>
+      `).join('');
+
+      sampleModal.classList.remove('hidden');
+      sampleModal.classList.add('flex');
+    };
+
+    function closeSampleModal() {
+      sampleModal.classList.add('hidden');
+      sampleModal.classList.remove('flex');
+    }
+
+    closeModalBtn.addEventListener('click', closeSampleModal);
+    sampleModal.addEventListener('click', (e) => {
+      if (e.target === sampleModal) closeSampleModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (sampleModal && !sampleModal.classList.contains('hidden')) {
+          closeSampleModal();
+        }
+        if (orderCompletionModal && !orderCompletionModal.classList.contains('hidden')) {
+          closeOrderCompletionModal();
+        }
+      }
+    });
+
+    function mapSampleCategoryToWorkType(category) {
+      if (category === 'summaries') return 'ملخص موضوع أو درس منظم';
+      if (category === 'projects') return 'ملف توثيق مشروع أو خطة عمل';
+      return 'بحث مبسط أو تقرير منظم بمصادر';
+    }
+
+    window.prefillFromSample = function (id) {
+      const item = SAMPLE_ITEMS.find((s) => s.id === id);
+      if (!item) return;
+      workTypeSelect.value = mapSampleCategoryToWorkType(item.category);
+      document.getElementById('topicInput').value = item.title;
+      document.getElementById('detailsInput').value = 'أرغب في إعداد ملف منظم بهيكلة مقاربة للنموذج: ' + item.categoryLabel;
+      updateBriefOutput();
+      document.getElementById('request-form').scrollIntoView({ behavior: 'smooth' });
+    };
+
+    useSampleInFormBtn.addEventListener('click', () => {
+      if (currentModalItem) {
+        const idToUse = currentModalItem.id;
+        closeSampleModal();
+        prefillFromSample(idToUse);
+      }
+    });
+
+    // مفاتيح التخزين المحلي وحالة الأدمن
+    const STORAGE_KEY = 'musawada_research_orders_v1';
+    const THEME_STORAGE_KEY = 'musawada_theme_mode_v1';
+    const WEBHOOK_STORAGE_KEY = 'musawada_discord_webhook_v1';
+    const WEBHOOK_CLEARED_KEY = 'musawada_discord_webhook_cleared_v1';
+    const DEFAULT_DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/1574955308978143317/Ve8J4z34QxEKBJ7K5LJBfiO-DAZE3ogntaJt21S15gXTLQmVCZCvvYInSCAwiGVjAPDw';
+    const FIREBASE_CONFIG_STORAGE_KEY = 'musawada_firebase_config_v1';
+    const ADMIN_PASS = 'mishmish';
+    let isAdminLoggedIn = false;
+    let cloudOrdersCache = [];
+    let cloudReady = false;
+    let cloudDbInstance = null;
+    let cloudAppId = 'musawada-default-app';
+    let firestoreModuleRef = null;
+    let unsubscribeCloudOrders = null;
+
+    function loadOrders() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        const parsed = raw ? JSON.parse(raw) : [];
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (err) {
+        return [];
+      }
+    }
+
+    function saveOrders(orders) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(orders));
+      } catch (err) {
+        // تجاهل خطأ التخزين في حال امتلاء مساحة المتصفح
+      }
+    }
+
+    function getActiveOrdersList() {
+      if (cloudReady && cloudOrdersCache.length > 0) {
+        return cloudOrdersCache;
+      }
+      const localOrders = loadOrders();
+      if (cloudReady && cloudOrdersCache.length === 0 && localOrders.length > 0) {
+        return localOrders;
+      }
+      return cloudReady ? cloudOrdersCache : localOrders;
+    }
+
+    function loadSavedWebhookUrl() {
+      try {
+        const customUrl = (localStorage.getItem(WEBHOOK_STORAGE_KEY) || '').trim();
+        if (customUrl) {
+          return customUrl;
+        }
+        const wasExplicitlyCleared = localStorage.getItem(WEBHOOK_CLEARED_KEY) === '1';
+        return wasExplicitlyCleared ? '' : DEFAULT_DISCORD_WEBHOOK;
+      } catch (err) {
+        return DEFAULT_DISCORD_WEBHOOK;
+      }
+    }
+
+    function saveWebhookUrlToLocal(url, isExplicitClear = false) {
+      try {
+        const clean = (url || '').trim();
+        if (clean) {
+          localStorage.setItem(WEBHOOK_STORAGE_KEY, clean);
+          localStorage.removeItem(WEBHOOK_CLEARED_KEY);
+        } else {
+          localStorage.removeItem(WEBHOOK_STORAGE_KEY);
+          if (isExplicitClear) {
+            localStorage.setItem(WEBHOOK_CLEARED_KEY, '1');
+          } else {
+            localStorage.removeItem(WEBHOOK_CLEARED_KEY);
+          }
+        }
+      } catch (err) {
+        // تجاهل خطأ التخزين
+      }
+    }
+
+    function resolveFirebaseConfig() {
+      try {
+        if (typeof __firebase_config !== 'undefined' && __firebase_config) {
+          return typeof __firebase_config === 'string' ? JSON.parse(__firebase_config) : __firebase_config;
+        }
+      } catch (err) {
+        // تجاهل خطأ التحليل
+      }
+      try {
+        const saved = localStorage.getItem(FIREBASE_CONFIG_STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && parsed.apiKey && parsed.projectId) {
+            return parsed;
+          }
+        }
+      } catch (err) {
+        // تجاهل خطأ التحليل
+      }
+      return null;
+    }
+
+    function updateSyncStatusUI(modeText, detailText, badgeVariant) {
+      const badge = document.getElementById('adminSyncStatusBadge');
+      const modeChip = document.getElementById('syncModeChip');
+      const detailEl = document.getElementById('syncDetailMessage');
+
+      if (modeChip) {
+        modeChip.textContent = `الوضع: ${modeText}`;
+      }
+      if (detailEl && detailText) {
+        detailEl.textContent = detailText;
+      }
+      if (badge) {
+        badge.className = 'px-2.5 py-1 rounded-full border text-xs font-bold ';
+        if (badgeVariant === 'cloud') {
+          badge.className += 'bg-emerald-100 text-emerald-900 border-emerald-200';
+          badge.textContent = 'متصل سحابياً (كل الأجهزة)';
+        } else if (badgeVariant === 'webhook') {
+          badge.className += 'bg-indigo-100 text-indigo-900 border-indigo-200';
+          badge.textContent = 'محلي + Discord Webhook مفعل';
+        } else {
+          badge.className += 'bg-amber-100 text-amber-900 border-amber-200';
+          badge.textContent = 'حفظ محلي فقط (بحاجة لربط سحابي أو Webhook)';
+        }
+      }
+    }
+
+    function refreshSyncIndicator() {
+      const webhookUrl = loadSavedWebhookUrl();
+      if (cloudReady) {
+        updateSyncStatusUI(
+          webhookUrl ? 'Firebase + Discord Webhook' : 'Firebase السحابي',
+          'الطلبات تُحفظ وتظهر تلقائياً في لوحة الأدمن من أي جهاز متصل بالإنترنت، مع حفظ احتياطي محلي.',
+          'cloud'
+        );
+      } else if (webhookUrl) {
+        updateSyncStatusUI(
+          'محلي + Discord Webhook',
+          'عند إرسال أي طلب من أي جهاز سيصلك إشعار فوري على ديسكورد عبر Webhook، كما يُحفظ الطلب محلياً في هذا المتصفح.',
+          'webhook'
+        );
+      } else {
+        updateSyncStatusUI(
+          'محلي احتياطي',
+          'الطلبات حالياً تُحفظ في متصفح الجهاز المرسل فقط. أضف إعدادات Firebase أو رابط Discord Webhook لاستقبال الطلبات من أي جهاز تلقائياً.',
+          'local'
+        );
+      }
+    }
+
+    async function sendOrderToDiscordWebhook(order, isTest = false) {
+      const webhookUrl = loadSavedWebhookUrl();
+      if (!webhookUrl) return { sent: false, reason: 'no_webhook' };
+
+      try {
+        const contentText = isTest
+          ? `🔔 **اختبار إشعار طلبات الموقع**\nتم ضبط Discord Webhook بنجاح لاستقبال طلبات خدمة الأبحاث والملخصات الموجهة إلى **${PROVIDER_DISCORD}**.`
+          : [
+              `📥 **طلب بحث / ملف جديد من الموقع** (المستلم: **${PROVIDER_DISCORD}**)`,
+              `**رقم الطلب:** ${order.id}`,
+              `**الموضوع:** ${order.topic}`,
+              `**النوع:** ${order.workType} | **الصفحات:** ${order.pages} | **الصيغة:** ${order.format}`,
+              `**المدة:** ${order.deadline} | **التقدير:** ${order.estimateRange}`,
+              `**يوزر ديسكورد العميل:** \`${order.discord}\``,
+              `**التفاصيل:** ${order.details || 'لا توجد ملاحظات إضافية'}`,
+              `**ملاحظة الدفع:** ${order.paymentNote || 'لم تُذكر ملاحظة'}`
+            ].join('\n');
+
+        const response = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            content: contentText,
+            allowed_mentions: { parse: [] }
+          })
+        });
+
+        if (!response.ok) {
+          return { sent: false, reason: `http_${response.status}` };
+        }
+        return { sent: true };
+      } catch (err) {
+        return { sent: false, reason: 'network_error' };
+      }
+    }
+
+    async function initCloudFirestoreIfConfigured() {
+      const fbConfig = resolveFirebaseConfig();
+      if (!fbConfig || !fbConfig.apiKey || !fbConfig.projectId) {
+        cloudReady = false;
+        refreshSyncIndicator();
+        return;
+      }
+
+      try {
+        const [{ initializeApp, getApps }, { getFirestore, collection, doc, setDoc, updateDoc, deleteDoc, onSnapshot, getDocs }] = await Promise.all([
+          import('https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js'),
+          import('https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js')
+        ]);
+
+        const existingApps = getApps ? getApps() : [];
+        const app = existingApps.length > 0 ? existingApps[0] : initializeApp(fbConfig);
+        cloudDbInstance = getFirestore(app);
+        cloudAppId = (typeof __app_id !== 'undefined' && __app_id) ? String(__app_id) : 'musawada-research-service';
+        firestoreModuleRef = { collection, doc, setDoc, updateDoc, deleteDoc, onSnapshot, getDocs };
+
+        const ordersCol = collection(cloudDbInstance, 'artifacts', cloudAppId, 'public', 'data', 'research_orders');
+
+        // مزامنة أي طلبات محلية سابقة إلى السحابة لمرة واحدة إذا لم تكن موجودة
+        const localOrders = loadOrders();
+        const snap = await getDocs(ordersCol);
+        const existingIds = new Set(snap.docs.map((d) => d.id));
+        for (const loc of localOrders) {
+          if (loc && loc.id && !existingIds.has(loc.id)) {
+            await setDoc(doc(ordersCol, loc.id), loc);
+          }
+        }
+
+        if (typeof unsubscribeCloudOrders === 'function') {
+          unsubscribeCloudOrders();
+        }
+
+        unsubscribeCloudOrders = onSnapshot(
+          ordersCol,
+          (snapshot) => {
+            const list = snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
+            list.sort((a, b) => String(b.id || '').localeCompare(String(a.id || '')));
+            cloudOrdersCache = list;
+            saveOrders(list);
+            cloudReady = true;
+            refreshSyncIndicator();
+            if (isAdminLoggedIn) {
+              renderAdminOrders();
+            }
+          },
+          () => {
+            cloudReady = false;
+            refreshSyncIndicator();
+          }
+        );
+
+        cloudReady = true;
+        refreshSyncIndicator();
+      } catch (err) {
+        cloudReady = false;
+        refreshSyncIndicator();
+      }
+    }
+
+    // حاسبة تقدير النطاق والاتفاق
+    const estType = document.getElementById('estType');
+    const estPages = document.getElementById('estPages');
+    const estPagesLabel = document.getElementById('estPagesLabel');
+    const estPriceRange = document.getElementById('estPriceRange');
+    const estDurationBadge = document.getElementById('estDurationBadge');
+    const urgencyOptions = document.getElementById('urgencyOptions');
+    const applyEstimateToFormBtn = document.getElementById('applyEstimateToFormBtn');
+    const pagesInput = document.getElementById('pagesInput');
+    const workTypeSelect = document.getElementById('workTypeSelect');
+
+    function calculateEstimate() {
+      const pages = parseInt(estPages.value, 10) || 5;
+      const selectedOption = estType.options[estType.selectedIndex];
+      const base = parseFloat(selectedOption.dataset.base) || 4;
+
+      // تطبيع عدد الصفحات من 2 إلى 20 إلى نسبة بين 0 و 1 ثم حساب تقدير محصور بين 5 و 30 ر.س
+      const pageRatio = Math.min(1, Math.max(0, (pages - 2) / 18));
+      const typeSpread = (base - 3) * 0.75;
+      const rawMin = 5 + pageRatio * 15 + typeSpread;
+      const scaledMin = Math.min(25, Math.max(5, rawMin * (0.9 + (selectedUrgency.mult - 1) * 0.45)));
+      const scaledMax = Math.min(30, Math.max(scaledMin + 3, scaledMin + 4 + pageRatio * 4));
+
+      const minRounded = Math.min(26, Math.max(5, Math.round(scaledMin)));
+      const maxRounded = Math.min(30, Math.max(minRounded + 2, Math.round(scaledMax)));
+
+      estPagesLabel.textContent = pages === 2 ? 'صفحتان' : `${pages} صفحات`;
+      estPriceRange.textContent = `${minRounded} – ${maxRounded}`;
+      estDurationBadge.textContent = `المدة: ${selectedUrgency.days}`;
+
+      return {
+        typeLabel: selectedOption.dataset.label,
+        pages,
+        urgencyLabel: selectedUrgency.label,
+        rangeText: `${minRounded} – ${maxRounded} ر.س (تقديري)`
+      };
+    }
+
+    estType.addEventListener('change', () => {
+      calculateEstimate();
+      updateBriefOutput();
+    });
+
+    estPages.addEventListener('input', () => {
+      pagesInput.value = estPages.value;
+      calculateEstimate();
+      updateBriefOutput();
+    });
+
+    urgencyOptions.addEventListener('click', (e) => {
+      const btn = e.target.closest('.urg-btn');
+      if (!btn) return;
+
+      selectedUrgency = {
+        key: btn.dataset.urgency,
+        mult: parseFloat(btn.dataset.mult) || 1,
+        days: btn.dataset.days,
+        label: btn.textContent.trim()
+      };
+
+      document.querySelectorAll('.urg-btn').forEach((b) => {
+        b.classList.remove('active', 'border-teal-600', 'bg-teal-600', 'text-white');
+        b.classList.add('border-slate-300', 'bg-white', 'text-slate-700');
+      });
+
+      btn.classList.remove('border-slate-300', 'bg-white', 'text-slate-700');
+      btn.classList.add('active', 'border-teal-600', 'bg-teal-600', 'text-white');
+
+      calculateEstimate();
+      updateBriefOutput();
+    });
+
+    // نموذج توليد وحفظ الطلب
+    const briefForm = document.getElementById('briefForm');
+    const topicInput = document.getElementById('topicInput');
+    const formatSelect = document.getElementById('formatSelect');
+    const deadlineInput = document.getElementById('deadlineInput');
+    const detailsInput = document.getElementById('detailsInput');
+    const discordInput = document.getElementById('discordInput');
+    const paymentNoteInput = document.getElementById('paymentNoteInput');
+    const discordContactConfirmCheckbox = document.getElementById('discordContactConfirmCheckbox');
+    const generatedBriefOutput = document.getElementById('generatedBriefOutput');
+    const copyBriefBtn = document.getElementById('copyBriefBtn');
+    const copyFeedback = document.getElementById('copyFeedback');
+    const resetBriefBtn = document.getElementById('resetBriefBtn');
+    const formAlertBox = document.getElementById('formAlertBox');
+    const formSavedBanner = document.getElementById('formSavedBanner');
+    const formSavedBannerText = document.getElementById('formSavedBannerText');
+    const bannerCopyDiscordBtn = document.getElementById('bannerCopyDiscordBtn');
+    const bannerCopyBriefBtn = document.getElementById('bannerCopyBriefBtn');
+    const reopenOrderModalBtn = document.getElementById('reopenOrderModalBtn');
+    const copyProviderDiscordBtn = document.getElementById('copyProviderDiscordBtn');
+    const orderCompletionModal = document.getElementById('orderCompletionModal');
+    const closeCompletionModalBtn = document.getElementById('closeCompletionModalBtn');
+    const dismissCompletionModalBtn = document.getElementById('dismissCompletionModalBtn');
+    const modalCopyDiscordBtn = document.getElementById('modalCopyDiscordBtn');
+    const modalCopyBriefBtn = document.getElementById('modalCopyBriefBtn');
+    const completionOrderMeta = document.getElementById('completionOrderMeta');
+    const completionModalFeedback = document.getElementById('completionModalFeedback');
+    const PROVIDER_DISCORD = '.3lal';
+    let lastSubmittedOrderBrief = '';
+    let lastSubmittedOrderSummaryLabel = '';
+
+    function openOrderCompletionModal(order) {
+      if (!orderCompletionModal) return;
+      completionModalFeedback.classList.add('hidden');
+      const orderIdPart = order && order.id ? `رقم الطلب: ${order.id}` : '';
+      const clientDiscordPart = order && order.discord ? `حسابك في ديسكورد: ${order.discord}` : '';
+      completionOrderMeta.textContent = [orderIdPart, clientDiscordPart].filter(Boolean).join(' • ');
+      orderCompletionModal.classList.remove('hidden');
+      orderCompletionModal.classList.add('flex');
+    }
+
+    function closeOrderCompletionModal() {
+      if (!orderCompletionModal) return;
+      orderCompletionModal.classList.add('hidden');
+      orderCompletionModal.classList.remove('flex');
+    }
+
+    if (closeCompletionModalBtn) {
+      closeCompletionModalBtn.addEventListener('click', closeOrderCompletionModal);
+    }
+    if (dismissCompletionModalBtn) {
+      dismissCompletionModalBtn.addEventListener('click', closeOrderCompletionModal);
+    }
+    if (orderCompletionModal) {
+      orderCompletionModal.addEventListener('click', (e) => {
+        if (e.target === orderCompletionModal) closeOrderCompletionModal();
+      });
+    }
+
+    function fallbackCopy(text, onDone) {
+      const ta = document.createElement('textarea');
+      ta.value = String(text ?? '');
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'absolute';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        if (onDone) onDone();
+      } catch (err) {
+        copyFeedback.textContent = 'تعذر النسخ تلقائياً؛ يمكنك تحديد النص المطلوب يدوياً ونسخه.';
+        copyFeedback.classList.remove('hidden');
+      }
+      document.body.removeChild(ta);
+    }
+
+    // دالة نسخ موحدة تقرأ نصاً مخصصاً محدداً فقط وتعرض رسالة تأكيد واضحة
+    function copyTextWithFeedback(textToCopy, successMessage) {
+      const cleanText = String(textToCopy ?? '');
+      if (!cleanText.trim()) {
+        copyFeedback.textContent = 'لا يوجد نص محدد لنسخه حالياً.';
+        copyFeedback.classList.remove('hidden');
+        return;
+      }
+
+      const showConfirmation = () => {
+        const msg = successMessage || 'تم نسخ النص المحدد بنجاح.';
+        copyFeedback.textContent = msg;
+        copyFeedback.classList.remove('hidden');
+        if (orderCompletionModal && !orderCompletionModal.classList.contains('hidden')) {
+          completionModalFeedback.textContent = msg;
+          completionModalFeedback.classList.remove('hidden');
+        }
+      };
+
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+        navigator.clipboard.writeText(cleanText).then(showConfirmation).catch(() => {
+          fallbackCopy(cleanText, showConfirmation);
+        });
+      } else {
+        fallbackCopy(cleanText, showConfirmation);
+      }
+    }
+
+    // بناء نص ملخص الطلب مباشرة من قيم الحقول المدخلة وليس من محتوى DOM
+    function buildBriefSummaryText(orderOverrides = null) {
+      const est = calculateEstimate();
+      const topic = (orderOverrides && orderOverrides.topic) || topicInput.value.trim() || '[اكتب عنوان البحث أو الموضوع هنا]';
+      const workType = (orderOverrides && orderOverrides.workType) || workTypeSelect.value;
+      const pages = (orderOverrides && orderOverrides.pages) || parseInt(pagesInput.value, 10) || est.pages || 5;
+      const format = (orderOverrides && orderOverrides.format) || formatSelect.value;
+      const deadline = (orderOverrides && orderOverrides.deadline) || deadlineInput.value.trim() || est.urgencyLabel;
+      const estimateRange = (orderOverrides && orderOverrides.estimateRange) || est.rangeText;
+      const discord = (orderOverrides && orderOverrides.discord) || discordInput.value.trim() || '[إجباري]';
+      const details = (orderOverrides && orderOverrides.details !== undefined)
+        ? (orderOverrides.details || '[لا توجد ملاحظات إضافية]')
+        : (detailsInput.value.trim() || '[أدخل تفاصيلك أو ملاحظاتك هنا]');
+      const paymentNote = (orderOverrides && orderOverrides.paymentNote !== undefined)
+        ? (orderOverrides.paymentNote || 'اتفاق واضح ومقابل متفق عليه قبل البدء')
+        : (paymentNoteInput.value.trim() || 'اتفاق واضح ومقابل متفق عليه قبل البدء');
+
+      const lines = [];
+      if (orderOverrides && orderOverrides.id) {
+        lines.push(`رقم الطلب: ${orderOverrides.id}`);
+      }
+      lines.push(
+        `الموضوع: ${topic}`,
+        `نوع العمل: ${workType}`,
+        `عدد الصفحات التقريبي: ${pages} صفحات`,
+        `الصيغة المطلوبة: ${format}`,
+        `الموعد / السرعة: ${deadline}`,
+        `السعر التقديري: ${estimateRange}`,
+        `يوزر ديسكورد: ${discord}`,
+        `التفاصيل: ${details}`,
+        `ملاحظة الدفع: ${paymentNote}`,
+        `شرط الإتمام: التواصل المباشر مع ${PROVIDER_DISCORD} عبر ديسكورد لإتمام الاتفاق والتأكيد`,
+        `التواصل: ديسكورد (Discord) فقط`
+      );
+      return lines.join('\n');
+    }
+
+    // منطق الأدمن المحمي بكلمة المرور
+    const adminLoginCard = document.getElementById('adminLoginCard');
+    const adminLoginForm = document.getElementById('adminLoginForm');
+    const adminPasswordInput = document.getElementById('adminPasswordInput');
+    const adminLoginError = document.getElementById('adminLoginError');
+    const adminDashboard = document.getElementById('adminDashboard');
+    const adminLogoutBtn = document.getElementById('adminLogoutBtn');
+    const adminOrdersCount = document.getElementById('adminOrdersCount');
+    const adminOrdersList = document.getElementById('adminOrdersList');
+    const adminActionFeedback = document.getElementById('adminActionFeedback');
+    const copyAllOrdersBtn = document.getElementById('copyAllOrdersBtn');
+    const clearAllOrdersBtn = document.getElementById('clearAllOrdersBtn');
+
+    function setAdminFeedback(msg) {
+      adminActionFeedback.textContent = msg;
+      adminActionFeedback.classList.remove('hidden');
+    }
+
+    function getStatusBadgeClass(status) {
+      if (status === 'مكتمل') return 'bg-emerald-100 text-emerald-800 border-emerald-200';
+      if (status === 'قيد التنفيذ') return 'bg-amber-100 text-amber-800 border-amber-200';
+      return 'bg-indigo-100 text-indigo-800 border-indigo-200';
+    }
+
+    function renderAdminOrders() {
+      if (!isAdminLoggedIn) return;
+      const orders = getActiveOrdersList();
+      adminOrdersCount.textContent = String(orders.length);
+      refreshSyncIndicator();
+      if (orders.length === 0) {
+        adminOrdersList.innerHTML = `
+          <div class="rounded-2xl bg-white border border-slate-200 p-6 text-center text-xs sm:text-sm text-slate-500 font-semibold">
+            لا توجد طلبات محفوظة حالياً في هذا المتصفح.
+          </div>
+        `;
+        return;
+      }
+
+      adminOrdersList.innerHTML = orders.map((order) => {
+        const safeId = escapeHtml(order.id || '');
+        const safeTopic = escapeHtml(order.topic || 'بدون عنوان');
+        const safeType = escapeHtml(order.workType || '');
+        const safePages = escapeHtml(String(order.pages || 1));
+        const safeFormat = escapeHtml(order.format || '');
+        const safeDeadline = escapeHtml(order.deadline || 'غير محدد');
+        const safeEstimate = escapeHtml(order.estimateRange || '');
+        const safeDiscord = escapeHtml(order.discord || '');
+        const safeDetails = escapeHtml(order.details || 'لا توجد ملاحظات إضافية');
+        const safePaymentNote = escapeHtml(order.paymentNote || 'لم تُذكر ملاحظة');
+        const safeCreatedAt = escapeHtml(order.createdAt || '');
+        const currentStatus = order.status || 'جديد';
+
+        return `
+          <article class="rounded-2xl bg-white border border-slate-200 p-5 shadow-xs space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="text-xs font-extrabold px-2.5 py-1 rounded-lg bg-slate-900 text-white">${safeId}</span>
+                <span class="text-xs font-bold px-2.5 py-1 rounded-full border ${getStatusBadgeClass(currentStatus)}">${escapeHtml(currentStatus)}</span>
+                ${safeCreatedAt ? `<span class="text-[11px] text-slate-500">${safeCreatedAt}</span>` : ''}
+              </div>
+
+              <div class="flex items-center gap-2">
+                <label for="status-${safeId}" class="sr-only">حالة الطلب</label>
+                <select
+                  id="status-${safeId}"
+                  onchange="updateOrderStatus('${safeId}', this.value)"
+                  class="rounded-xl border border-slate-300 bg-slate-50 px-3 py-1.5 text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option value="جديد" ${currentStatus === 'جديد' ? 'selected' : ''}>جديد</option>
+                  <option value="قيد التنفيذ" ${currentStatus === 'قيد التنفيذ' ? 'selected' : ''}>قيد التنفيذ</option>
+                  <option value="مكتمل" ${currentStatus === 'مكتمل' ? 'selected' : ''}>مكتمل</option>
+                </select>
+                <button
+                  type="button"
+                  onclick="deleteOrderById('${safeId}')"
+                  class="px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-bold transition-colors"
+                >
+                  حذف
+                </button>
+              </div>
+            </div>
+
+            <div class="space-y-1.5">
+              <h4 class="text-base font-extrabold text-slate-900">${safeTopic}</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 text-xs text-slate-600 pt-1">
+                <div><strong class="text-slate-800">النوع:</strong> ${safeType}</div>
+                <div><strong class="text-slate-800">الصفحات:</strong> ${safePages}</div>
+                <div><strong class="text-slate-800">الصيغة:</strong> ${safeFormat}</div>
+                <div><strong class="text-slate-800">المدة:</strong> ${safeDeadline}</div>
+                <div><strong class="text-slate-800">التقدير:</strong> ${safeEstimate}</div>
+                <div><strong class="text-slate-800">ديسكورد العميل:</strong> <span class="font-extrabold text-indigo-700 select-all">${safeDiscord}</span></div>
+              </div>
+              <p class="text-xs text-slate-600 bg-slate-50 border border-slate-200/70 rounded-xl p-3 mt-2">
+                <strong class="text-slate-800">التفاصيل:</strong> ${safeDetails}
+              </p>
+              <p class="text-xs text-slate-500">
+                <strong class="text-slate-700">ملاحظة الدفع:</strong> ${safePaymentNote}
+              </p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100">
+              <button
+                type="button"
+                onclick="copyClientDiscord('${safeId}')"
+                class="px-3.5 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border border-indigo-200 text-xs font-bold transition-colors"
+              >
+                نسخ يوزر العميل
+              </button>
+              <button
+                type="button"
+                onclick="copySingleOrderDetails('${safeId}')"
+                class="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-colors"
+              >
+                نسخ تفاصيل الطلب
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    // تنسيق بيانات الطلب كـ نص واضح للنسخ أو التصدير
+    function formatOrderText(order) {
+      if (!order) return '';
+      return buildBriefSummaryText({
+        id: order.id || '',
+        topic: order.topic || 'بدون عنوان',
+        workType: order.workType || '',
+        pages: order.pages || 1,
+        format: order.format || '',
+        deadline: order.deadline || 'غير محدد',
+        estimateRange: order.estimateRange || '',
+        discord: order.discord || '',
+        details: order.details || 'لا توجد ملاحظات إضافية',
+        paymentNote: order.paymentNote || 'لم تُذكر ملاحظة'
+      });
+    }
+
+    // تسجيل الخروج من لوحة الأدمن وإخفاء لوحة الإدارة
+    if (adminLogoutBtn) {
+      adminLogoutBtn.addEventListener('click', () => {
+        isAdminLoggedIn = false;
+        adminDashboard.classList.add('hidden');
+        adminLoginCard.classList.remove('hidden');
+        adminLoginError.classList.add('hidden');
+        adminActionFeedback.classList.add('hidden');
+        adminOrdersList.innerHTML = '';
+      });
+    }
+
+    // إظهار أو إخفاء غلاف لوحة الأدمن بالكامل
+    const toggleAdminVisibilityBtn = document.getElementById('toggleAdminVisibilityBtn');
+    const adminPanelWrapper = document.getElementById('adminPanelWrapper');
+    if (toggleAdminVisibilityBtn && adminPanelWrapper) {
+      toggleAdminVisibilityBtn.addEventListener('click', () => {
+        adminPanelWrapper.classList.toggle('hidden');
+      });
+    }
+
+    window.updateOrderStatus = async function (id, newStatus) {
+      if (!isAdminLoggedIn) return;
+      const orders = loadOrders();
+      const idx = orders.findIndex((o) => o.id === id);
+      if (idx !== -1) {
+        orders[idx].status = newStatus;
+        saveOrders(orders);
+      }
+      if (cloudReady && cloudDbInstance && firestoreModuleRef) {
+        try {
+          const orderRef = firestoreModuleRef.doc(cloudDbInstance, 'artifacts', cloudAppId, 'public', 'data', 'research_orders', id);
+          await firestoreModuleRef.updateDoc(orderRef, { status: newStatus });
+        } catch (err) {
+          // يبقى التحديث المحلي سارياً في حال تعذر التحديث السحابي
+        }
+      }
+      renderAdminOrders();
+      setAdminFeedback(`تم تحديث حالة الطلب (${id}) إلى: ${newStatus}`);
+    };
+
+    window.deleteOrderById = async function (id) {
+      if (!isAdminLoggedIn) return;
+      const orders = loadOrders().filter((o) => o.id !== id);
+      saveOrders(orders);
+      cloudOrdersCache = cloudOrdersCache.filter((o) => o.id !== id);
+      if (cloudReady && cloudDbInstance && firestoreModuleRef) {
+        try {
+          const orderRef = firestoreModuleRef.doc(cloudDbInstance, 'artifacts', cloudAppId, 'public', 'data', 'research_orders', id);
+          await firestoreModuleRef.deleteDoc(orderRef);
+        } catch (err) {
+          // يبقى الحذف المحلي سارياً
+        }
+      }
+      renderAdminOrders();
+      setAdminFeedback(`تم حذف الطلب (${id}).`);
+    };
+
+    window.copyClientDiscord = function (id) {
+      if (!isAdminLoggedIn) return;
+      const order = getActiveOrdersList().find((o) => o.id === id);
+      if (!order || !order.discord) return;
+      const clientHandle = String(order.discord).trim();
+      copyTextWithFeedback(clientHandle, `تم نسخ يوزر ديسكورد للعميل (${clientHandle}) فقط.`);
+      setAdminFeedback(`تم نسخ يوزر العميل (${clientHandle}) للطلب ${id}.`);
+    };
+
+    window.copySingleOrderDetails = function (id) {
+      if (!isAdminLoggedIn) return;
+      const order = getActiveOrdersList().find((o) => o.id === id);
+      if (!order) return;
+      const singleOrderText = formatOrderText(order);
+      copyTextWithFeedback(singleOrderText, `تم نسخ تفاصيل الطلب (${id}) المحدد فقط.`);
+      setAdminFeedback(`تم نسخ تفاصيل الطلب (${id}) المحدد فقط.`);
+    };
+
+    function updateBriefOutput() {
+      generatedBriefOutput.textContent = buildBriefSummaryText();
+    }
+
+    if (copyBriefBtn) {
+      copyBriefBtn.addEventListener('click', () => {
+        const specificBriefText = buildBriefSummaryText();
+        copyTextWithFeedback(specificBriefText, 'تم نسخ ملخص الطلب المحدد فقط — تواصل معي على ديسكورد (.3lal) لإتمام الاتفاق.');
+      });
+    }
+
+    if (bannerCopyDiscordBtn) {
+      bannerCopyDiscordBtn.addEventListener('click', () => {
+        copyTextWithFeedback(PROVIDER_DISCORD, `تم نسخ يوزر ديسكورد (${PROVIDER_DISCORD}) فقط.`);
+      });
+    }
+
+    if (bannerCopyBriefBtn) {
+      bannerCopyBriefBtn.addEventListener('click', () => {
+        const briefToCopy = lastSubmittedOrderBrief || buildBriefSummaryText();
+        copyTextWithFeedback(briefToCopy, 'تم نسخ ملخص الطلب فقط — أرسله لي على ديسكورد (.3lal).');
+      });
+    }
+
+    if (modalCopyDiscordBtn) {
+      modalCopyDiscordBtn.addEventListener('click', () => {
+        copyTextWithFeedback(PROVIDER_DISCORD, `تم نسخ يوزر ديسكورد (${PROVIDER_DISCORD}) فقط — أضفني وتواصل معي الآن.`);
+      });
+    }
+
+    if (modalCopyBriefBtn) {
+      modalCopyBriefBtn.addEventListener('click', () => {
+        const briefToCopy = lastSubmittedOrderBrief || buildBriefSummaryText();
+        copyTextWithFeedback(briefToCopy, 'تم نسخ ملخص الطلب فقط — الصقه في رسالة خاصة على ديسكورد لـ (.3lal).');
+      });
+    }
+
+    if (reopenOrderModalBtn) {
+      reopenOrderModalBtn.addEventListener('click', () => {
+        const latestOrders = loadOrders();
+        openOrderCompletionModal(latestOrders[0] || { id: '', discord: discordInput.value.trim() });
+      });
+    }
+
+    [topicInput, workTypeSelect, pagesInput, formatSelect, deadlineInput, detailsInput, discordInput, paymentNoteInput].forEach((el) => {
+      if (!el) return;
+      el.addEventListener('input', updateBriefOutput);
+      el.addEventListener('change', updateBriefOutput);
+    });
+
+    if (applyEstimateToFormBtn) {
+      applyEstimateToFormBtn.addEventListener('click', () => {
+        const est = calculateEstimate();
+        const typeMap = {
+          summary: 'ملخص موضوع أو درس منظم',
+          research: 'بحث مبسط أو تقرير منظم بمصادر',
+          projectDoc: 'ملف توثيق مشروع أو خطة عمل'
+        };
+        if (typeMap[estType.value]) {
+          workTypeSelect.value = typeMap[estType.value];
+        }
+        pagesInput.value = String(est.pages);
+        deadlineInput.value = est.urgencyLabel;
+        updateBriefOutput();
+        document.getElementById('request-form').scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    if (copyProviderDiscordBtn) {
+      copyProviderDiscordBtn.addEventListener('click', () => {
+        copyTextWithFeedback(PROVIDER_DISCORD, `تم نسخ يوزر ديسكورد (${PROVIDER_DISCORD}) — تواصل معي عبر ديسكورد لإتمام الاتفاق.`);
+      });
+    }
+
+    if (resetBriefBtn) {
+      resetBriefBtn.addEventListener('click', () => {
+        briefForm.reset();
+        pagesInput.value = '5';
+        estPages.value = '5';
+        formAlertBox.classList.add('hidden');
+        formSavedBanner.classList.add('hidden');
+        copyFeedback.classList.add('hidden');
+        calculateEstimate();
+        updateBriefOutput();
+      });
+    }
+
+    if (adminLoginForm) {
+      adminLoginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const enteredPass = adminPasswordInput.value;
+        if (enteredPass === ADMIN_PASS) {
+          isAdminLoggedIn = true;
+          adminLoginError.classList.add('hidden');
+          adminPasswordInput.value = '';
+          adminLoginCard.classList.add('hidden');
+          adminDashboard.classList.remove('hidden');
+
+          const webhookInput = document.getElementById('discordWebhookInput');
+          if (webhookInput) webhookInput.value = loadSavedWebhookUrl();
+          const fbInput = document.getElementById('firebaseConfigInput');
+          if (fbInput) {
+            try {
+              fbInput.value = localStorage.getItem(FIREBASE_CONFIG_STORAGE_KEY) || '';
+            } catch (err) {
+              fbInput.value = '';
+            }
+          }
+
+          refreshSyncIndicator();
+          renderAdminOrders();
+          setAdminFeedback('تم تسجيل الدخول إلى لوحة طلبات الأدمن بنجاح.');
+        } else {
+          adminLoginError.textContent = 'كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى.';
+          adminLoginError.classList.remove('hidden');
+        }
+      });
+    }
+
+    const refreshCloudOrdersBtn = document.getElementById('refreshCloudOrdersBtn');
+    if (refreshCloudOrdersBtn) {
+      refreshCloudOrdersBtn.addEventListener('click', async () => {
+        if (!isAdminLoggedIn) return;
+        await initCloudFirestoreIfConfigured();
+        renderAdminOrders();
+        setAdminFeedback('تم تحديث قائمة الطلبات ومزامنة الحالة.');
+      });
+    }
+
+    const webhookSettingsForm = document.getElementById('webhookSettingsForm');
+    const clearWebhookBtn = document.getElementById('clearWebhookBtn');
+    const testWebhookBtn = document.getElementById('testWebhookBtn');
+    if (webhookSettingsForm) {
+      webhookSettingsForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!isAdminLoggedIn) return;
+        const inputEl = document.getElementById('discordWebhookInput');
+        const url = inputEl ? inputEl.value.trim() : '';
+        saveWebhookUrlToLocal(url, false);
+        refreshSyncIndicator();
+        setAdminFeedback(url ? 'تم حفظ رابط Discord Webhook وتفعيله للإشعارات الفورية.' : 'تم تفريغ رابط Discord Webhook.');
+      });
+    }
+    if (clearWebhookBtn) {
+      clearWebhookBtn.addEventListener('click', () => {
+        if (!isAdminLoggedIn) return;
+        const inputEl = document.getElementById('discordWebhookInput');
+        if (inputEl) inputEl.value = '';
+        saveWebhookUrlToLocal('', true);
+        refreshSyncIndicator();
+        setAdminFeedback('تم مسح رابط Discord Webhook.');
+      });
+    }
+    if (testWebhookBtn) {
+      testWebhookBtn.addEventListener('click', async () => {
+        if (!isAdminLoggedIn) return;
+        const inputEl = document.getElementById('discordWebhookInput');
+        if (inputEl && inputEl.value.trim()) {
+          saveWebhookUrlToLocal(inputEl.value.trim(), false);
+        }
+        const res = await sendOrderToDiscordWebhook(null, true);
+        if (res.sent) {
+          setAdminFeedback('تم إرسال إشعار تجريبي إلى قناة ديسكورد عبر Webhook بنجاح.');
+        } else {
+          setAdminFeedback('تعذر إرسال الإشعار التجريبي؛ تأكد من صحة رابط Discord Webhook أو سماحية الشبكة.');
+        }
+      });
+    }
+
+    const firebaseConfigForm = document.getElementById('firebaseConfigForm');
+    const clearFirebaseConfigBtn = document.getElementById('clearFirebaseConfigBtn');
+    if (firebaseConfigForm) {
+      firebaseConfigForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!isAdminLoggedIn) return;
+        const fbInput = document.getElementById('firebaseConfigInput');
+        const rawJson = fbInput ? fbInput.value.trim() : '';
+        if (!rawJson) {
+          setAdminFeedback('يرجى لصق كائن إعدادات Firebase بصيغة JSON أولاً.');
+          return;
+        }
+        try {
+          const parsed = JSON.parse(rawJson);
+          if (!parsed.apiKey || !parsed.projectId) {
+            setAdminFeedback('إعدادات Firebase غير مكتملة؛ يجب أن تحتوي على apiKey و projectId.');
+            return;
+          }
+          localStorage.setItem(FIREBASE_CONFIG_STORAGE_KEY, JSON.stringify(parsed));
+          await initCloudFirestoreIfConfigured();
+          renderAdminOrders();
+          setAdminFeedback(cloudReady ? 'تم تفعيل المزامنة السحابية عبر Firebase بنجاح.' : 'تم حفظ الإعدادات؛ تحقق من صلاحيات Firestore أو اتصال الإنترنت.');
+        } catch (err) {
+          setAdminFeedback('صيغة JSON غير صحيحة؛ تأكد من كتابة الإعدادات بشكل سليم.');
+        }
+      });
+    }
+    if (clearFirebaseConfigBtn) {
+      clearFirebaseConfigBtn.addEventListener('click', () => {
+        if (!isAdminLoggedIn) return;
+        const fbInput = document.getElementById('firebaseConfigInput');
+        if (fbInput) fbInput.value = '';
+        try {
+          localStorage.removeItem(FIREBASE_CONFIG_STORAGE_KEY);
+        } catch (err) {
+          // تجاهل
+        }
+        if (typeof unsubscribeCloudOrders === 'function') {
+          unsubscribeCloudOrders();
+          unsubscribeCloudOrders = null;
+        }
+        cloudReady = false;
+        cloudOrdersCache = [];
+        refreshSyncIndicator();
+        renderAdminOrders();
+        setAdminFeedback('تم مسح إعدادات Firebase والعودة للوضع المحلي / Webhook.');
+      });
+    }
+    briefForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      formAlertBox.classList.add('hidden');
+
+      const topic = topicInput.value.trim();
+      const discord = discordInput.value.trim();
+      const isConfirmed = Boolean(discordContactConfirmCheckbox && discordContactConfirmCheckbox.checked);
+
+      if (!topic) {
+        formAlertBox.textContent = 'يرجى إدخال موضوع أو عنوان البحث / الملخص قبل إرسال الطلب.';
+        formAlertBox.classList.remove('hidden');
+        topicInput.focus();
+        return;
+      }
+
+      if (!discord) {
+        formAlertBox.textContent = 'حقل يوزر ديسكورد (Discord) إجباري؛ يرجى كتابة يوزرك لإتمام الطلب.';
+        formAlertBox.classList.remove('hidden');
+        discordInput.focus();
+        return;
+      }
+
+      if (!isConfirmed) {
+        formAlertBox.textContent = 'يرجى تأكيد الموافقة على التواصل المباشر مع (.3lal) عبر ديسكورد لإتمام الاتفاق والتأكيد.';
+        formAlertBox.classList.remove('hidden');
+        discordContactConfirmCheckbox.focus();
+        return;
+      }
+
+      const est = calculateEstimate();
+      const now = new Date();
+      const newOrder = {
+        id: 'ORD-' + now.getFullYear().toString().slice(-2) + String(now.getMonth() + 1).padStart(2, '0') + String(now.getDate()).padStart(2, '0') + '-' + Math.floor(100 + Math.random() * 900),
+        topic,
+        workType: workTypeSelect.value,
+        pages: parseInt(pagesInput.value, 10) || est.pages || 5,
+        format: formatSelect.value,
+        deadline: deadlineInput.value.trim() || est.urgencyLabel,
+        estimateRange: est.rangeText,
+        discord,
+        details: detailsInput.value.trim(),
+        paymentNote: paymentNoteInput.value.trim(),
+        status: 'جديد',
+        createdAt: now.toLocaleString('ar-SA')
+      };
+
+      const orders = loadOrders();
+      orders.unshift(newOrder);
+      saveOrders(orders);
+      cloudOrdersCache = [newOrder, ...cloudOrdersCache.filter((item) => item.id !== newOrder.id)];
+
+      if (cloudReady && cloudDbInstance && firestoreModuleRef) {
+        try {
+          const orderRef = firestoreModuleRef.doc(cloudDbInstance, 'artifacts', cloudAppId, 'public', 'data', 'research_orders', newOrder.id);
+          await firestoreModuleRef.setDoc(orderRef, newOrder);
+        } catch (err) {
+          // يبقى الطلب محفوظاً محلياً في حال وجود مشكلة سحابية مؤقتة
+        }
+      }
+
+      await sendOrderToDiscordWebhook(newOrder, false);
+
+      updateBriefOutput();
+      lastSubmittedOrderBrief = buildBriefSummaryText(newOrder);
+      lastSubmittedOrderSummaryLabel = `رقم الطلب (${newOrder.id})`;
+
+      formSavedBannerText.textContent = `تم حفظ طلبك (${lastSubmittedOrderSummaryLabel}) — لازم تتواصل معي على ديسكورد (${PROVIDER_DISCORD}) من حسابك (${newOrder.discord}) لتأكيد الطلب والاتفاق وإتمام التفاصيل.`;
+      formSavedBanner.classList.remove('hidden');
+
+      if (isAdminLoggedIn) {
+        renderAdminOrders();
+      }
+      openOrderCompletionModal(newOrder);
+    });
+
+    if (copyAllOrdersBtn) {
+      copyAllOrdersBtn.addEventListener('click', () => {
+        if (!isAdminLoggedIn) return;
+        const orders = getActiveOrdersList();
+        if (orders.length === 0) {
+          setAdminFeedback('لا توجد طلبات محفوظة لنسخها.');
+          return;
+        }
+        const allText = orders.map((order, idx) =>
+          `--- طلب #${idx + 1} (${order.id}) | الحالة: ${order.status} | التاريخ: ${order.createdAt || ''} ---\n` + formatOrderText(order)
+        ).join('\n\n');
+        copyTextWithFeedback(allText, 'تم نسخ جميع الطلبات المحفوظة إلى الحافظة.');
+        setAdminFeedback(`تم تصدير ونسخ (${orders.length}) طلبات محفوظة.`);
+      });
+    }
+
+    if (clearAllOrdersBtn) {
+      clearAllOrdersBtn.addEventListener('click', async () => {
+        if (!isAdminLoggedIn) return;
+        const currentOrders = getActiveOrdersList();
+        saveOrders([]);
+        cloudOrdersCache = [];
+        if (cloudReady && cloudDbInstance && firestoreModuleRef) {
+          try {
+            for (const ord of currentOrders) {
+              if (ord && ord.id) {
+                await firestoreModuleRef.deleteDoc(
+                  firestoreModuleRef.doc(cloudDbInstance, 'artifacts', cloudAppId, 'public', 'data', 'research_orders', ord.id)
+                );
+              }
+            }
+          } catch (err) {
+            // تجاهل أخطاء الحذف السحابي الجزئية
+          }
+        }
+        renderAdminOrders();
+        setAdminFeedback('تم حذف جميع الطلبات المحفوظة.');
+      });
+    }
+
+    // تبديل النمط الفاتح / الداكن وحفظ الحالة في localStorage
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const moonIcon = document.getElementById('moonIcon');
+    const sunIcon = document.getElementById('sunIcon');
+    let isDark = false;
+
+    function applyThemeMode(darkMode, shouldPersist = true) {
+      isDark = Boolean(darkMode);
+      document.body.classList.toggle('bg-slate-950', isDark);
+      document.body.classList.toggle('text-slate-100', isDark);
+      document.body.classList.toggle('bg-slate-50', !isDark);
+      document.body.classList.toggle('text-slate-800', !isDark);
+
+      let darkStyleTag = document.getElementById('dynamicDarkTheme');
+      if (isDark) {
+        if (!darkStyleTag) {
+          darkStyleTag = document.createElement('style');
+          darkStyleTag.id = 'dynamicDarkTheme';
+          darkStyleTag.textContent = `
+            body.bg-slate-950 header,
+            body.bg-slate-950 footer { background-color: rgba(15, 23, 42, 0.94) !important; border-color: #1e293b !important; }
+            body.bg-slate-950 section { background-color: #0b1120 !important; background-image: none !important; border-color: #1e293b !important; }
+            body.bg-slate-950 article,
+            body.bg-slate-950 form,
+            body.bg-slate-950 .rounded-3xl,
+            body.bg-slate-950 .rounded-2xl { background-color: #111827 !important; border-color: #1f2937 !important; }
+            body.bg-slate-950 .bg-slate-50,
+            body.bg-slate-950 .bg-teal-50\\/60 { background-color: #0f172a !important; border-color: #1e293b !important; }
+            body.bg-slate-950 h1, body.bg-slate-950 h2, body.bg-slate-950 h3, body.bg-slate-950 h4,
+            body.bg-slate-950 .text-slate-900, body.bg-slate-950 .text-slate-800 { color: #f8fafc !important; }
+            body.bg-slate-950 p, body.bg-slate-950 .text-slate-600, body.bg-slate-950 .text-slate-700, body.bg-slate-950 .text-slate-500 { color: #94a3b8 !important; }
+            body.bg-slate-950 input, body.bg-slate-950 select, body.bg-slate-950 textarea {
+              background-color: #0b1120 !important; color: #f1f5f9 !important; border-color: #334155 !important;
+            }
+            body.bg-slate-950 #sampleModal > div { background-color: #111827 !important; border-color: #334155 !important; }
+            body.bg-slate-950 #orderCompletionModal > div { background-color: #111827 !important; border-color: #d97706 !important; }
+          `;
+          document.head.appendChild(darkStyleTag);
+        }
+        moonIcon.classList.add('hidden');
+        sunIcon.classList.remove('hidden');
+        themeToggleBtn.setAttribute('title', 'تبديل إلى الوضع الفاتح');
+        themeToggleBtn.setAttribute('aria-label', 'تبديل إلى الوضع الفاتح');
+      } else {
+        if (darkStyleTag) darkStyleTag.remove();
+        moonIcon.classList.remove('hidden');
+        sunIcon.classList.add('hidden');
+        themeToggleBtn.setAttribute('title', 'تبديل إلى الوضع الداكن');
+        themeToggleBtn.setAttribute('aria-label', 'تبديل إلى الوضع الداكن');
+      }
+
+      if (shouldPersist) {
+        try {
+          localStorage.setItem(THEME_STORAGE_KEY, isDark ? 'dark' : 'light');
+        } catch (err) {
+          // تجاهل خطأ التخزين
+        }
+      }
+    }
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        applyThemeMode(!isDark, true);
+      });
+    }
+
+    // استعادة الثيم المحفوظ عند التحميل
+    let savedTheme = 'light';
+    try {
+      savedTheme = localStorage.getItem(THEME_STORAGE_KEY) || 'light';
+    } catch (err) {
+      savedTheme = 'light';
+    }
+    applyThemeMode(savedTheme === 'dark', false);
+
+    // تهيئة أولية عند التحميل
+    renderSamples();
+    calculateEstimate();
+    updateBriefOutput();
+    refreshSyncIndicator();
+    initCloudFirestoreIfConfigured();
+  </script>
+</body>
+</html>
